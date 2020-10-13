@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from "./components/Navbar";
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router,  Route } from "react-router-dom";
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './redux/reducers';
+import AddUser from './components/FormAddUser';
+import EditUser from './components/FormEditUser';
+import ListUser from './components/ListUserComponents';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          <Provider store={createStore(reducers, applyMiddleware(thunk))}>
+              <Router>
+              {/* <Switch> */}
+          <Route exact path="/">
+            <NavBar/>
+            <ListUser/>
+          </Route>
+          <Route exact path="/AddUser">
+          <NavBar/>
+            <AddUser/>
+          </Route>
+          <Route exact path="/EditUser/:id">
+          <NavBar/>
+            <EditUser/>
+          </Route>
+          {/* </Switch> */}
+              </Router>
+          </Provider>
+      </div>
   );
 }
 
