@@ -10,7 +10,6 @@ const delUser = (payload) => {
 
 
 const deleteUser = (id) => async (dispatch) => {
-    // const token = JSON.parse(localStorage.getItem("token")).token;
     try {
     const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}/api/customer/delete/${id}`;
     // const url = `${process.env.REACT_APP_API}/api/customer/delete/${id}`;
@@ -19,7 +18,7 @@ const deleteUser = (id) => async (dispatch) => {
         body: JSON.stringify(),
         headers: {
             'Content-type': 'application/json',
-            // authorization: `Bearer ${token}`,
+
         },
     };
     const response = await fetch(url, options);
@@ -30,7 +29,7 @@ const deleteUser = (id) => async (dispatch) => {
             title: 'delete succes!',
             text: '',
             icon: 'success',
-            // confirmButtonText: 'Cool',
+
         });
         dispatch(getAllUsers());
         // history.push('/');

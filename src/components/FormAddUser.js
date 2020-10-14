@@ -63,6 +63,7 @@ export default function FormAddMovie() {
           }
       }
 //   };
+
 console.log(form)
   const handleChange = (event) => {
       setForm({ ...form, [event.target.name]: event.target.value });

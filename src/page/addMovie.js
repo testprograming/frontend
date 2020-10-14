@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import AddMovie from '../components/FormAddMovie';
+import AddMovie from '../components/FormAddUser';
 
 function addMovie() {
     return (

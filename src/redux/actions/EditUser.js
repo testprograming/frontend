@@ -54,14 +54,13 @@ const updateUser = (formData, history, id) => async (dispatch) => {
 
 
 const findUser = (id) => async (dispatch) => {
-    //    const token = localStorage.getItem("token");
+
         const url = `${process.env.REACT_APP_BACKEND_ENDPOINT}/api/customer/findbysearch/${id}`;
         // const url = `${process.env.REACT_APP_API}/api/customer/findbysearch/${id}`;
         const options = {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
-                // authorization: `Bearer ${token}`,
             },
         };
         const response = await fetch(url, options);
