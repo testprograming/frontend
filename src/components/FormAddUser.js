@@ -49,21 +49,36 @@ export default function FormAddMovie() {
         form.name === ''
     ) {
         Swal.fire({
-            title: 'Tolong isi nama',
+            title: 'input your name',
             text: '',
             icon: 'error',
         });
     } else if(form.phone===""){
 
         Swal.fire({
-            title: 'Tolong isi nomer hp',
+            title: 'input your phone number',
             text: '',
             icon: 'error',
         });
+       }   if (
+          form.email === ''
+      ) {
+          Swal.fire({
+              title: 'input your email',
+              text: '',
+              icon: 'error',
+          });
+      } else if(form.image_url===""){
+  
+          Swal.fire({
+              title: 'input your KTP',
+              text: '',
+              icon: 'error',
+          });
 } if(form.address===""){
 
         Swal.fire({
-            title: 'Tolong isi alamat',
+            title: 'input your address',
             text: '',
             icon: 'error',
         });}
