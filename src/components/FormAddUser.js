@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-// import ReactFilestack from "filestack-react";
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { uploadUser } from '../redux/actions';
@@ -53,7 +52,6 @@ export default function FormAddMovie() {
             title: 'Tolong isi nama',
             text: '',
             icon: 'error',
-            // confirmButtonText: 'Cool',
         });
     } else if(form.phone===""){
 
@@ -61,7 +59,6 @@ export default function FormAddMovie() {
             title: 'Tolong isi nomer hp',
             text: '',
             icon: 'error',
-            // confirmButtonText: 'Cool',
         });
 } if(form.address===""){
 
@@ -69,13 +66,11 @@ export default function FormAddMovie() {
             title: 'Tolong isi alamat',
             text: '',
             icon: 'error',
-            // confirmButtonText: 'Cool',
         });}
 else {
             await dispatch(uploadUser(form, history));
         }
     }
-//   };
 
 console.log(form)
   const handleChange = (event) => {
