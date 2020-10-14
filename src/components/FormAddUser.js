@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+// import ReactFilestack from "filestack-react";
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { uploadUser } from '../redux/actions';
@@ -44,24 +45,36 @@ export default function FormAddMovie() {
       image_url: '',
   });
   const handleSubmit = async (event) => {
-      event.preventDefault();
-      if (
-          form.name === '' ||
-          form.phone === '' ||
-          form.address === '' ||
-          form.email === '' ||
-          form.image_url === '' 
-      ) {
-          Swal.fire({
-              title: 'Please complete the form',
-              text: '',
-              icon: 'error',
-              // confirmButtonText: 'Cool',
-          });
-      } else {
-              await dispatch(uploadUser(form, history));
-          }
-      }
+    event.preventDefault();
+    if (
+        form.name === ''
+    ) {
+        Swal.fire({
+            title: 'Tolong isi nama',
+            text: '',
+            icon: 'error',
+            // confirmButtonText: 'Cool',
+        });
+    } else if(form.phone===""){
+
+        Swal.fire({
+            title: 'Tolong isi nomer hp',
+            text: '',
+            icon: 'error',
+            // confirmButtonText: 'Cool',
+        });
+} if(form.address===""){
+
+        Swal.fire({
+            title: 'Tolong isi alamat',
+            text: '',
+            icon: 'error',
+            // confirmButtonText: 'Cool',
+        });}
+else {
+            await dispatch(uploadUser(form, history));
+        }
+    }
 //   };
 
 console.log(form)
@@ -137,7 +150,7 @@ console.log(form)
             fullWidth
             name="image_url"
             label="ktp"
-            type="text"
+            type="file"
             id="ktp"
             value={form.image_url}
             onChange={handleChange}

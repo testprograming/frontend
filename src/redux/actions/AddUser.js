@@ -28,16 +28,16 @@ const uploadUser = (formData, history) => async (dispatch) => {
             // confirmButtonText: 'Cool',
         });
         history.push('/');
-    } else {
+    } else if (result.message ==="Phone Number is already registered")  {
         Swal.fire({
-            title: 'User already add',
+            title: 'Phone Number already registered',
             text: '',
             icon: 'error',
             // confirmButtonText: 'Cool',
         });
     }
     dispatch(addUser(result));
-
+console.log(result)
 };
 
 
